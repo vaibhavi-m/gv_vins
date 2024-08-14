@@ -124,8 +124,8 @@ int main(int argc, char **argv)
     ros::AsyncSpinner spinner(0);
     spinner.start();
 
-    sub_img = nh.subscribe("/cam0/image_raw", 1, img_callback);
-    sub_pose = nh.subscribe("/pose_gt", 1, imu_pose_callback);
+    sub_img = nh.subscribe("/camera/camera/color/image_raw", 1, img_callback);
+    sub_pose = nh.subscribe("/odom", 1, imu_pose_callback);
     image_transport::ImageTransport it(nh);
     pub_img_track = it.advertise("img_track", 2);
     pub_ipm_track = it.advertise("ipm_track", 2);
